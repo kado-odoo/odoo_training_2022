@@ -324,7 +324,7 @@
     </record>
 
     
-    <record id="estate_property_gantt" model="ir.ui.view">
+    <!-- <record id="estate_property_gantt" model="ir.ui.view">
         <field name="name">Estate Property Gantt</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
@@ -332,7 +332,7 @@
                 <field name="name"/>
             </gantt>
         </field>
-    </record>
+    </record> -->
 
     <record id="estate_property_graph" model="ir.ui.view">
         <field name="name">Estate Property Graph</field>

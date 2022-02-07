@@ -2,6 +2,9 @@
     'name': 'Real Estate Extend',
     'category': 'Tools',
     'application' : True,
+    'depends':[
+        'estate'
+    ],
     'data': [
         'security/ir.model.access.csv',
         'views/estate_extend_menus.xml',
@@ -9,4 +12,6 @@
     ],
     'license': 'LGPL-3',
     'install' : True,
+
+    
 }

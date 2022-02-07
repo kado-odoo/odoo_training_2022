@@ -40,4 +40,51 @@
             <t t-set="SomeAdditionalData">Hello</t>
         </t>
     </template>
+
+    <!-- <template id="properties_static" name="properties">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="text-center font-weight-bold">Hello World</div>
+            </div>
+        </t>
+    </template> -->
+
+     <template id="properties_static" name="properties">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <th>Sequence</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>State</th>
+                        </thead>
+                        <tbody>
+                            <t t-set="sequence" t-value="0"/>
+                            <t t-foreach="properties" t-as="property">
+                                <t t-set="sequence" t-value="sequence + 1"/>
+                                <!-- <tr t-att-class="sequence % 2 == 0 and 'o_even' or ''"> -->
+                                <tr t-attf-style="#{sequence % 2 == 0 and 'background: grey;' or ''}">
+                                    <td><t t-out="sequence" /></td>
+                                    <td>
+                                        <a t-attf-href="/property/#{property_id}">
+                                            <t t-out="property.name" />
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <t t-if="property.description" t-out="property.description" />
+                                        <t t-else="">No Description Available</t>
+                                    </td>
+                                    <td><span t-field="property.state"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
 </odoo>    

@@ -19,22 +19,24 @@ class OpenAcademy(http.Controller):
     def hello_template_user(self, **kw):
         properties = request.env['estate.property'].search([('state', '=', 'new')])
         print ("properties ::: ", properties)
-        return request.render('estate.hello_user', { 'user': request.env.user, 'properties': properties })    
+        return request.render('estate.hello_user', { 'user': request.env.user, 'properties': properties })   
 
-    # @http.route(['/course', '/course/static/<string:is_static>'], auth="public", website=True)
-    # def courses(self, is_static=False, **kw):
-    #     if is_static:
-    #         return request.render('open_academy.courses_static', {
-    #             'courses': request.env['course.course'].sudo().search([], limit=8)
-    #         })
-    #     return request.render('open_academy.courses', {
-    #             'courses': request.env['course.course'].sudo().search([], limit=8)
-    #         })
+    # @http.route('/property', auth="public", website=True)
+    # def property(self, **kw):
+    #     return request.render('estate.properties_static',{
 
-    # @http.route(['/course/<model("course.course"):course>', '/course/<string:is_static>'], auth="public", website=True)
-    # def course_details(self, course=False, **kw):
-    #     if course:
-    #         return request.render('open_academy.course_details', {
-    #             'course': course,
-    #         })
-                
+    #         'properties': request.env['estate.property'].sudo().search([], limit=8)
+
+    #     }) 
+
+    @http.route('/property',website=True,auth='public')
+    def estate_porperty_show(self,**kw):
+        # return "property page"
+
+        properties = request.env['estate.property'].search([])
+        return request.render("estate.properties_static",{
+
+                'properties':properties,
+
+
+        })

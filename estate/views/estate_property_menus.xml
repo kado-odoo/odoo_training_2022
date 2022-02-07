@@ -3,7 +3,7 @@
     <record id="real_estate_properties_action" model="ir.actions.act_window">
         <field name="name">Properties</field>
         <field name="res_model">estate.property</field>
-        <field name="view_mode">tree,form,kanban,pivot,gantt,graph</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph</field>
         <field name="context">{'search_default_state':'new','search_default_partner_id':1,'is_my_property':True}</field>
     </record>
 
